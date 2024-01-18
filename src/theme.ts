@@ -39,17 +39,19 @@ const theme = createTheme({
 
   typography: {
     fontFamily: monserrat.style.fontFamily,
-
     h1: {
       fontSize: "clamp(3rem, 4vw, 4rem)",
       fontWeight: 700,
     },
     h2: {
-      fontSize: "clamp(2.1rem, 3vw, 2.4rem)",
+      fontSize: "clamp(2rem, 3vw, 2.4rem)",
       fontWeight: 700,
     },
     h3: {
-      fontSize: "2rem",
+      fontSize: "clamp(1.8rem, 2vw, 2rem)",
+    },
+    h4: {
+      fontSize: "1.6rem",
     },
     subtitle1: {
       fontSize: "1.4rem",

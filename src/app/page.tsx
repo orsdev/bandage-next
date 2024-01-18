@@ -1,9 +1,13 @@
-import { Hero } from "@/components/home";
+import { CenteredContainer } from "@/components";
+import { FeaturedProducts, Hero } from "@/components/home";
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <CenteredContainer>
+        <Hero />
+        <FeaturedProducts />
+      </CenteredContainer>
     </>
   );
 }
