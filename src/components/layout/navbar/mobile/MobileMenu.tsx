@@ -44,8 +44,8 @@ export const MobileMenu = () => {
         >
           <Box
             sx={{
-              position: "absolute",
-              top: 0,
+              position: "fixed",
+              top: 70,
               left: 0,
               width: "100%",
               bgcolor: "primary.light",

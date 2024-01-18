@@ -20,7 +20,9 @@ export const CartButton = () => {
         width={18}
         height={18}
       />
-      <Typography variant="subtitle2">1</Typography>
+      <Typography variant="subtitle2" component="p">
+        1
+      </Typography>
     </Button>
   );
 };

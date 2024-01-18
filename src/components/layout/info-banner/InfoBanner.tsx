@@ -21,7 +21,7 @@ export const InfoBanner = () => {
         alignItems="center"
         px="2.4rem"
         color="primary.light"
-        maxWidth={{ lg: "85%" }}
+        maxWidth={{ lg: "1363px" }}
         mx="auto"
       >
         <Stack

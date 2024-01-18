@@ -6,7 +6,13 @@ import { MobileMenu } from "./mobile";
 
 export const Navbar = () => {
   return (
-    <Box>
+    <Box
+      position={{ base: "sticky", md: "relative" }}
+      top={0}
+      left={0}
+      bgcolor="primary.light"
+      zIndex="fab"
+    >
       <Stack
         direction="row"
         justifyContent="space-between"
@@ -14,7 +20,7 @@ export const Navbar = () => {
         px="2.4rem"
         py="29px"
         bgcolor="primary.light"
-        maxWidth={{ lg: "85%" }}
+        maxWidth={{ lg: "1363px" }}
         width="100%"
         mx="auto"
       >

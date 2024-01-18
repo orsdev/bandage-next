@@ -33,6 +33,7 @@ const theme = createTheme({
     },
     info: {
       main: "#737373",
+      contrastText: "#2DC071",
     },
   },
 
@@ -40,10 +41,12 @@ const theme = createTheme({
     fontFamily: monserrat.style.fontFamily,
 
     h1: {
-      fontSize: "calc(3rem, 4vw,4rem)",
+      fontSize: "clamp(3rem, 4vw, 4rem)",
+      fontWeight: 700,
     },
     h2: {
       fontSize: "clamp(2.1rem, 3vw, 2.4rem)",
+      fontWeight: 700,
     },
     h3: {
       fontSize: "2rem",
