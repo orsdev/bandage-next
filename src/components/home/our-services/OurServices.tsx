@@ -25,7 +25,7 @@ export const OurServices = () => {
   return (
     <Box
       component="section"
-      mt="80px"
+      mt="160px"
       px={{ base: "40px", md: "80px" }}
       width="100%"
     >

@@ -1,5 +1,10 @@
 import { CenteredContainer } from "@/components";
-import { FeaturedProducts, Hero, OurServices } from "@/components/home";
+import {
+  FeaturedPosts,
+  FeaturedProducts,
+  Hero,
+  OurServices,
+} from "@/components/home";
 
 export default function Home() {
   return (
@@ -8,6 +13,7 @@ export default function Home() {
         <Hero />
         <FeaturedProducts />
         <OurServices />
+        <FeaturedPosts />
       </CenteredContainer>
     </>
   );

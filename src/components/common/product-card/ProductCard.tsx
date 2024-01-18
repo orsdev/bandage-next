@@ -23,7 +23,7 @@ export const ProductCard: FC<ProductCard> = ({
         boxShadow: "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px",
       }}
     >
-      <CardMedia sx={{ height: 238 }} image={thumbnail} title="green iguana" />
+      <CardMedia sx={{ height: 238 }} image={thumbnail} title={name} />
       <CardContent
         sx={{
           padding: "25px 25px 35px 25px",
