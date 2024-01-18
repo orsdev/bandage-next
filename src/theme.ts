@@ -1,6 +1,6 @@
 "use client";
 import { Montserrat } from "next/font/google";
-import { createTheme } from "@mui/material/styles";
+import { Breakpoints, createTheme } from "@mui/material/styles";
 
 const monserrat = Montserrat({
   weight: ["300", "400", "500", "700"],
@@ -9,6 +9,17 @@ const monserrat = Montserrat({
 });
 
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      base: 0,
+      xs: 400,
+      sm: 700,
+      md: 1000,
+      lg: 1200,
+      xl: 1300,
+      xxl: 1400,
+    },
+  } as Breakpoints & { values: { base: number; xxl: number } },
   palette: {
     primary: {
       main: "#23A6F0",
@@ -17,7 +28,11 @@ const theme = createTheme({
     },
     secondary: {
       main: "#23856D",
+      dark: "#252B42",
       contrastText: "#BDBDBD",
+    },
+    info: {
+      main: "#737373",
     },
   },
 
@@ -25,16 +40,20 @@ const theme = createTheme({
     fontFamily: monserrat.style.fontFamily,
 
     h1: {
-      fontSize: "4rem",
+      fontSize: "calc(3rem, 4vw,4rem)",
     },
     h2: {
-      fontSize: "2.4rem",
+      fontSize: "clamp(2.1rem, 3vw, 2.4rem)",
     },
     h3: {
       fontSize: "2rem",
     },
     subtitle1: {
       fontSize: "1.4rem",
+    },
+    subtitle2: {
+      fontSize: "1.2rem",
+      fontWeight: 400,
     },
   },
   components: {

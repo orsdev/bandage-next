@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 import { CssBaseline } from "@mui/material";
 import theme from "@/theme";
 import StoreProvider from "@/store/StoreProvider";
-import { InfoBanner } from "@/components";
+import { InfoBanner, Navbar } from "@/components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -50,6 +50,7 @@ export default function RootLayout({
             <CssBaseline />
             <StoreProvider>
               <InfoBanner />
+              <Navbar />
               {children}
             </StoreProvider>
           </ThemeProvider>
