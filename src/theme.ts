@@ -23,6 +23,7 @@ const theme = createTheme({
 
   typography: {
     fontFamily: monserrat.style.fontFamily,
+
     h1: {
       fontSize: "4rem",
     },
@@ -32,12 +33,18 @@ const theme = createTheme({
     h3: {
       fontSize: "2rem",
     },
+    subtitle1: {
+      fontSize: "1.4rem",
+    },
   },
   components: {
     MuiCssBaseline: {
       styleOverrides: {
         html: {
           fontSize: "62.5%",
+        },
+        "span, p, a": {
+          fontSize: "1.4rem",
         },
       },
     },

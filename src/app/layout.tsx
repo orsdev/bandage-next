@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import { CssBaseline } from "@mui/material";
 import theme from "@/theme";
 import StoreProvider from "@/store/StoreProvider";
+import { InfoBanner } from "@/components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,7 +48,10 @@ export default function RootLayout({
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <StoreProvider>{children}</StoreProvider>
+            <StoreProvider>
+              <InfoBanner />
+              {children}
+            </StoreProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
