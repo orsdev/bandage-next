@@ -1,5 +1,5 @@
 import { CenteredContainer } from "@/components";
-import { FeaturedProducts, Hero } from "@/components/home";
+import { FeaturedProducts, Hero, OurServices } from "@/components/home";
 
 export default function Home() {
   return (
@@ -7,6 +7,7 @@ export default function Home() {
       <CenteredContainer>
         <Hero />
         <FeaturedProducts />
+        <OurServices />
       </CenteredContainer>
     </>
   );

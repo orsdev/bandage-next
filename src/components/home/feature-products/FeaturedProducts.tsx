@@ -7,7 +7,7 @@ export const FeaturedProducts = () => {
   return (
     <Box
       component="section"
-      mt={{ base: "50px", md: "80px" }}
+      mt="80px"
       px={{ base: "40px", md: "80px" }}
       width="100%"
     >
