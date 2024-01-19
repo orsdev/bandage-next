@@ -2,7 +2,7 @@
 
 import { CenteredContainer } from "@/components";
 import { Breadcrumb, Crumbs } from "@/components/common";
-import { ProductInfo } from "@/components/shop/product";
+import { BestProducts, ProductInfo } from "@/components/shop/product";
 import { ProductOverview } from "@/components/shop/product/product-overview/ProductOverview";
 import { Box } from "@mui/material";
 
@@ -25,6 +25,9 @@ export default function Product() {
 
           {/* Product Overview */}
           <ProductOverview />
+
+          {/* Best Product */}
+          <BestProducts />
         </Box>
       </CenteredContainer>
     </>
