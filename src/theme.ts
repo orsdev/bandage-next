@@ -14,12 +14,13 @@ const theme = createTheme({
       base: 0,
       xs: 400,
       sm: 700,
+      sm2: 900,
       md: 1000,
       lg: 1200,
       xl: 1300,
       xxl: 1400,
     },
-  } as Breakpoints & { values: { base: number; xxl: number } },
+  } as Breakpoints & { values: { base: number; sm2: number; xxl: number } },
   palette: {
     primary: {
       main: "#23A6F0",
@@ -35,6 +36,7 @@ const theme = createTheme({
       main: "#737373",
       contrastText: "#2DC071",
       light: "#8EC2F2",
+      "100": "#ECECEC",
     },
   },
 

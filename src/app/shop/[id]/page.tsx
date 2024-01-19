@@ -3,6 +3,7 @@
 import { CenteredContainer } from "@/components";
 import { Breadcrumb, Crumbs } from "@/components/common";
 import { ProductInfo } from "@/components/shop/product";
+import { ProductOverview } from "@/components/shop/product/product-overview/ProductOverview";
 import { Box } from "@mui/material";
 
 const CrumbsData = [
@@ -21,6 +22,9 @@ export default function Product() {
         <Box px={{ sm: "20vw", md: 0 }}>
           {/* Product Info */}
           <ProductInfo />
+
+          {/* Product Overview */}
+          <ProductOverview />
         </Box>
       </CenteredContainer>
     </>

@@ -64,6 +64,7 @@ export const ProductCarousel: FC<ProductCarousel> = ({ images = [], name }) => {
                 objectFit: "cover",
                 display: "block",
                 height: "100%",
+                cursor: "pointer",
               }}
             />
           </SwiperSlide>
