@@ -2,7 +2,7 @@ import { Box, Button, Rating, Typography } from "@mui/material";
 
 import { CustomButton } from "@/components/common";
 import { ProductColors } from "../colors";
-import { MiniButton } from "../../common";
+import { MiniButton } from "../../../common";
 
 export function ProductContent() {
   return (
