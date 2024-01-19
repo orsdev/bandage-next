@@ -12,6 +12,7 @@ import { LinkCard } from "./common/LinkCard";
 import { Subscribe } from "./subscribe";
 import { useIsHomepage } from "@/hooks";
 import { DefaultWidth } from "@/utils";
+import Link from "next/link";
 
 const onDefaultPadding = (is_home: boolean) =>
   is_home
@@ -36,15 +37,21 @@ export const Footer = () => {
         px={onDefaultPadding(isHomepage)}
       >
         {/* Logo */}
-        <Typography
-          component="h2"
-          variant="h2"
-          mt="5px"
-          fontWeight={700}
-          color="secondary.dark"
+        <Link
+          href="/"
+          style={{
+            textDecoration: "none",
+          }}
         >
-          Bandage
-        </Typography>
+          <Typography
+            component="p"
+            variant="h2"
+            fontWeight={700}
+            color="secondary.dark"
+          >
+            Bandage
+          </Typography>
+        </Link>
 
         {/* Social */}
         <FooterSocial />

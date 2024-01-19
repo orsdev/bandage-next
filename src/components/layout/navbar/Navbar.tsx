@@ -5,6 +5,7 @@ import { DesktopMenu } from "./desktop/Desktop";
 import { MobileMenu } from "./mobile";
 import { useIsHomepage } from "@/hooks";
 import { DefaultWidth } from "@/utils";
+import Link from "next/link";
 
 export const Navbar = () => {
   const isHomePage = useIsHomepage();
@@ -29,14 +30,21 @@ export const Navbar = () => {
         mx="auto"
       >
         {/* Logo */}
-        <Typography
-          component="h2"
-          variant="h2"
-          fontWeight={700}
-          color="secondary.dark"
+        <Link
+          href="/"
+          style={{
+            textDecoration: "none",
+          }}
         >
-          Bandage
-        </Typography>
+          <Typography
+            component="p"
+            variant="h2"
+            fontWeight={700}
+            color="secondary.dark"
+          >
+            Bandage
+          </Typography>
+        </Link>
 
         {/* Desktop Menu */}
         <Box
