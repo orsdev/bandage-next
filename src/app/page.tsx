@@ -1,5 +1,6 @@
 import { CenteredContainer } from "@/components";
 import {
+  Experience,
   FeaturedPosts,
   FeaturedProducts,
   Hero,
@@ -17,6 +18,7 @@ export default function Home() {
         <FeaturedPosts />
         <Reviews />
       </CenteredContainer>
+      <Experience />
     </>
   );
 }
