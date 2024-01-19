@@ -4,6 +4,7 @@ import {
   Card,
   CardContent,
   CardMedia,
+  Chip,
   Typography,
 } from "@mui/material";
 import dayjs from "dayjs";
@@ -31,10 +32,25 @@ export const PostCard: FC<PostCard> = ({
 }) => (
   <Card
     style={{
+      position: "relative",
+
       borderRadius: 0,
       boxShadow: "0px 2px 4px 0px rgba(0, 0, 0, 0.10)",
     }}
   >
+    <Box position="absolute" top="20px" left="30px">
+      <Chip
+        label="NEW"
+        sx={{
+          borderRadius: "3px",
+          fontWeight: 700,
+          fontSize: "1.2rem",
+          color: "primary.light",
+          bgcolor: "#E74040",
+          height: "28px",
+        }}
+      />
+    </Box>
     <CardMedia sx={{ height: 300 }} image={thumbnail} title={title} />
     <CardContent
       sx={{

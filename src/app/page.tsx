@@ -4,6 +4,7 @@ import {
   FeaturedProducts,
   Hero,
   OurServices,
+  Reviews,
 } from "@/components/home";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         <FeaturedProducts />
         <OurServices />
         <FeaturedPosts />
+        <Reviews />
       </CenteredContainer>
     </>
   );
