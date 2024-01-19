@@ -2,6 +2,7 @@ import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { FC } from "react";
 
 interface ProductCard {
+  handleClick(): void;
   thumbnail: string;
   name: string;
   brand: string;
@@ -15,13 +16,16 @@ export const ProductCard: FC<ProductCard> = ({
   brand,
   price,
   discount,
+  handleClick,
 }) => {
   return (
     <Card
       style={{
         borderRadius: 0,
+        cursor: "pointer",
         boxShadow: "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px",
       }}
+      onClick={handleClick}
     >
       <CardMedia sx={{ height: 238 }} image={thumbnail} title={name} />
       <CardContent

@@ -10,8 +10,17 @@ import {
 } from "./footer.util";
 import { LinkCard } from "./common/LinkCard";
 import { Subscribe } from "./subscribe";
+import { useIsHomepage } from "@/hooks";
+import { DefaultWidth } from "@/utils";
+
+const onDefaultPadding = (is_home: boolean) =>
+  is_home
+    ? { base: "40px", sm: "90px", md: "195px" }
+    : { base: "2.4rem", lg: 0 };
 
 export const Footer = () => {
+  const isHomepage = useIsHomepage();
+
   return (
     <Box component="footer">
       {/* Header */}
@@ -20,11 +29,11 @@ export const Footer = () => {
         justifyContent="space-between"
         bgcolor="primary.contrastText"
         flexDirection={{ base: "column", sm: "row" }}
+        maxWidth={{ lg: isHomepage ? "auto" : DefaultWidth.md }}
         rowGap="20px"
         py="53px"
-        sx={{
-          px: { base: "40px", sm: "90px", md: "195px" },
-        }}
+        mx="auto"
+        px={onDefaultPadding(isHomepage)}
       >
         {/* Logo */}
         <Typography
@@ -43,9 +52,9 @@ export const Footer = () => {
 
       <Box
         bgcolor="primary.light"
-        sx={{
-          px: { base: "40px", sm: "90px", md: "195px" },
-        }}
+        maxWidth={{ lg: isHomepage ? "auto" : DefaultWidth.md }}
+        mx="auto"
+        px={onDefaultPadding(isHomepage)}
       >
         {/* Divider */}
         <Box
@@ -112,7 +121,7 @@ export const Footer = () => {
           </Box>
 
           {/* Subscribe form */}
-          <Box width="320px">
+          <Box width={isHomepage ? "320px" : "290px"}>
             <Subscribe />
           </Box>
         </Box>
@@ -123,9 +132,9 @@ export const Footer = () => {
         bgcolor="#FAFAFA"
         py="25px"
         textAlign={{ base: "center", sm: "left" }}
-        sx={{
-          px: { base: "40px", sm: "90px", md: "195px" },
-        }}
+        maxWidth={{ lg: isHomepage ? "auto" : DefaultWidth.md }}
+        mx="auto"
+        px={onDefaultPadding(isHomepage)}
       >
         <Typography
           component="p"

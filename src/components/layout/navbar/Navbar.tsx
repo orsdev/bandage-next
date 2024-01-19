@@ -3,8 +3,12 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { DesktopMenu } from "./desktop/Desktop";
 import { MobileMenu } from "./mobile";
+import { useIsHomepage } from "@/hooks";
+import { DefaultWidth } from "@/utils";
 
 export const Navbar = () => {
+  const isHomePage = useIsHomepage();
+
   return (
     <Box
       position={{ base: "sticky", md: "relative" }}
@@ -20,7 +24,7 @@ export const Navbar = () => {
         px="2.4rem"
         py="29px"
         bgcolor="primary.light"
-        maxWidth={{ lg: "1363px" }}
+        maxWidth={{ lg: isHomePage ? DefaultWidth.xl : DefaultWidth.md }}
         width="100%"
         mx="auto"
       >

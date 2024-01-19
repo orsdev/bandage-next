@@ -2,8 +2,10 @@
 
 import { CustomButton, ProductCard } from "@/components/common";
 import { Box, Typography } from "@mui/material";
+import { useRouter } from "next/navigation";
 
 export const FeaturedProducts = () => {
+  const router = useRouter();
   return (
     <Box
       component="section"
@@ -62,6 +64,9 @@ export const FeaturedProducts = () => {
             price={500}
             discount={100}
             thumbnail="/images/products/product-1.png"
+            handleClick={() => {
+              router.push(`/shop/${1}`);
+            }}
           />
 
           <ProductCard
@@ -70,41 +75,20 @@ export const FeaturedProducts = () => {
             price={500}
             discount={100}
             thumbnail="/images/products/product-1.png"
+            handleClick={() => {
+              router.push(`/shop/${2}`);
+            }}
           />
+
           <ProductCard
             name="Iphone"
             brand="English Department"
             price={500}
             discount={100}
             thumbnail="/images/products/product-1.png"
-          />
-          <ProductCard
-            name="Iphone"
-            brand="English Department"
-            price={500}
-            discount={100}
-            thumbnail="/images/products/product-1.png"
-          />
-          <ProductCard
-            name="Iphone"
-            brand="English Department"
-            price={500}
-            discount={100}
-            thumbnail="/images/products/product-1.png"
-          />
-          <ProductCard
-            name="Iphone"
-            brand="English Department"
-            price={500}
-            discount={100}
-            thumbnail="/images/products/product-1.png"
-          />
-          <ProductCard
-            name="Iphone"
-            brand="English Department"
-            price={500}
-            discount={100}
-            thumbnail="/images/products/product-1.png"
+            handleClick={() => {
+              router.push(`/shop/${3}`);
+            }}
           />
         </Box>
 

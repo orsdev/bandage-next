@@ -1,5 +1,7 @@
 "use client";
 
+import { useIsHomepage } from "@/hooks";
+import { DefaultWidth } from "@/utils";
 import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 
@@ -11,6 +13,8 @@ const Social = [
 ];
 
 export const InfoBanner = () => {
+  const isHomepage = useIsHomepage();
+
   return (
     <Box bgcolor="secondary.main">
       <Stack
@@ -21,7 +25,7 @@ export const InfoBanner = () => {
         alignItems="center"
         px="2.4rem"
         color="primary.light"
-        maxWidth={{ lg: "1363px" }}
+        maxWidth={{ lg: isHomepage ? DefaultWidth.xl : DefaultWidth.md }}
         mx="auto"
       >
         <Stack
