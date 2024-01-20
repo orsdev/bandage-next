@@ -5,7 +5,13 @@ import { Inter } from "next/font/google";
 import { CssBaseline } from "@mui/material";
 import theme from "@/theme";
 import StoreProvider from "@/store/StoreProvider";
-import { CartDrawer, Footer, InfoBanner, Navbar } from "@/components";
+import {
+  CartDrawer,
+  Footer,
+  InfoBanner,
+  Navbar,
+  WishlistDrawer,
+} from "@/components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -54,7 +60,10 @@ export default function RootLayout({
               <Navbar />
               {children}
               <Footer />
+
+              {/* Drawers */}
               <CartDrawer />
+              <WishlistDrawer />
             </ThemeProvider>
           </AppRouterCacheProvider>
         </StoreProvider>

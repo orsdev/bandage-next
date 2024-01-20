@@ -90,7 +90,7 @@ export class ShoppingCart {
   /**
    * Check if item in in cart
    *
-   * @param {number} itemId - The ID of the item whose quantity is to be reduced.
+   * @param {number} itemId - The ID of the item in the cart.
    * @param {Array<CartItem>} cartItems - The current items in the cart.
    * @returns {Boolean}
    */

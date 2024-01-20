@@ -1,10 +1,16 @@
 import { Button, Typography } from "@mui/material";
 import Image from "next/image";
+import { useWishlistDrawer } from "../use-wishlist";
+import { useAppSelector } from "@/store/hook";
 
 export const WishlistButton = () => {
+  const { handleOpenWishlist } = useWishlistDrawer();
+  const { wishlists } = useAppSelector((state) => state.wishlists);
+
   return (
     <Button
       type="button"
+      onClick={handleOpenWishlist}
       sx={{
         display: "flex",
         alignItems: "center",
@@ -21,7 +27,7 @@ export const WishlistButton = () => {
         height={18}
       />
       <Typography variant="subtitle2" component="p">
-        1
+        {wishlists.length}
       </Typography>
     </Button>
   );

@@ -8,19 +8,23 @@ import { useAppDispatch, useAppSelector } from "@/store/hook";
 import { ShoppingCart, addToCart } from "@/store/slices";
 import { ProductType } from "@/store/api";
 import { calculateDiscountedPrice } from "@/utils";
+import { WishlistClass, addToWishlist } from "@/store/slices/wishlist";
 
 interface ProductContent {
   product: ProductType;
 }
 
 export const ProductContent: FC<ProductContent> = ({ product }) => {
+  const { cart } = useAppSelector((state) => state.cart);
+  const { wishlists } = useAppSelector((state) => state.wishlists);
+
+  const dispatch = useAppDispatch();
+
+  // States
   const [open, setOpen] = useState(false);
   const [snackMessage, setSnackMessage] = useState("");
 
   const { title, price, rating, stock, id, discountPercentage } = product || {};
-
-  const dispatch = useAppDispatch();
-  const { cart } = useAppSelector((state) => state.cart);
 
   const handleOpenSnack = () => {
     setOpen(true);
@@ -138,11 +142,16 @@ export const ProductContent: FC<ProductContent> = ({ product }) => {
             }}
           />
 
-          {/* Favorite Button*/}
+          {/* Wishlist Button*/}
           <MiniButton
             icon="/images/icons/love.png"
             title="Favorite"
-            handleClick={() => {}}
+            isDisabled={WishlistClass.isInWishlists(id, wishlists)}
+            handleClick={() => {
+              dispatch(addToWishlist({ toBeAdded: product, items: wishlists }));
+              setSnackMessage(`${title} added to wishlist`);
+              handleOpenSnack();
+            }}
           />
 
           {/* Cart Button*/}

@@ -8,7 +8,7 @@ import { ProductsApi } from "./api";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["cart", "wishlist"],
+  whitelist: ["cart", "wishlists"],
 };
 
 export const store = configureStore({
