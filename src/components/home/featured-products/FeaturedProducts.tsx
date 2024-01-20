@@ -8,7 +8,7 @@ import {
 import { useLazyGetAllProductsQuery } from "@/store/api";
 import { Box, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
-import { useFeaturedProduct } from "./use-features-products";
+import { useFeaturedProduct } from "./use-featured-products";
 import { useEffect } from "react";
 
 export const FeaturedProducts = () => {
@@ -27,9 +27,11 @@ export const FeaturedProducts = () => {
   const isLastItem = products.length === total;
 
   useEffect(() => {
-    // Fetch products on initial load
+    // Fetch products api
     trigger("", true);
   }, []);
+
+  if (error && !data) return <></>;
 
   return (
     <Box

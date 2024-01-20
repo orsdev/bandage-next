@@ -35,8 +35,9 @@ const theme = createTheme({
     info: {
       main: "#737373",
       contrastText: "#2DC071",
-      light: "#8EC2F2",
+      light: "#23A6F0",
       "100": "#ECECEC",
+      "200": "#E6E6E6",
     },
   },
 
@@ -47,7 +48,7 @@ const theme = createTheme({
       fontWeight: 700,
     },
     h2: {
-      fontSize: "clamp(2rem, 3vw, 2.4rem)",
+      fontSize: "clamp(1.9rem, 3vw, 2.4rem)",
       fontWeight: 700,
     },
     h3: {

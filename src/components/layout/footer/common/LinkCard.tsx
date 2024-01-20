@@ -13,7 +13,7 @@ export const LinkCard: FC<LinkCard> = ({ title, routes }) => {
   return (
     <Box>
       <Typography
-        component="h5"
+        component="h6"
         variant="h4"
         mt="5px"
         fontWeight={700}

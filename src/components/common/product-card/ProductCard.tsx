@@ -40,7 +40,7 @@ export const ProductCard: FC<ProductCard> = ({
         }}
       >
         <Typography
-          component="h4"
+          component="h6"
           variant="h4"
           fontWeight={700}
           color="secondary.dark"
@@ -57,12 +57,12 @@ export const ProductCard: FC<ProductCard> = ({
         >
           {brand}
         </Typography>
-        <Box display="flex" gap="8px" justifyContent="center">
+        <Box display="flex" gap="8px" justifyContent="center" flexWrap="wrap">
           <Typography
             component="p"
             variant="subtitle1"
             fontWeight={700}
-            color="secondary.contrastText"
+            color="info.main"
           >
             $<span>{price?.toLocaleString()}</span>
           </Typography>

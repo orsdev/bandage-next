@@ -46,7 +46,7 @@ export const PostCard: FC<PostCard> = ({
           fontWeight: 700,
           fontSize: "1.2rem",
           color: "primary.light",
-          bgcolor: "#E74040",
+          bgcolor: "#ff1818",
           height: "28px",
         }}
       />
@@ -169,7 +169,7 @@ export const PostCard: FC<PostCard> = ({
           Learn More
           <Image
             src="/images/icons/right-arrow.svg"
-            alt="Learn More"
+            alt="Right Angle Arrow"
             width={9}
             height={16}
             style={{

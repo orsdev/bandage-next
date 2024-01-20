@@ -22,7 +22,7 @@ export const Subscribe = () => {
   return (
     <Box width="100%">
       <Typography
-        component="h5"
+        component="h6"
         variant="h4"
         mt="5px"
         fontWeight={700}
@@ -51,6 +51,10 @@ export const Subscribe = () => {
           },
           "& .MuiFormControl-root": {
             flex: 1,
+
+            "& fieldset": {
+              borderColor: "info.200",
+            },
           },
           "& .MuiFormControl-root input": {
             fontSize: "1.2rem",

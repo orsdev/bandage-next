@@ -17,9 +17,7 @@ export const useCustomPagination = () => {
       return total - ProductsApiInitials.limit;
 
     // Calculate the skip value based on the current page
-    const skip = (page - 1) * ProductsApiInitials.limit;
-
-    return skip;
+    return (page - 1) * ProductsApiInitials.limit;
   };
 
   /**
