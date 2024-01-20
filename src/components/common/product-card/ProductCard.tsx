@@ -29,7 +29,14 @@ export const ProductCard: FC<ProductCard> = ({
       onClick={handleClick}
     >
       <CardMedia
-        sx={{ width: "100%", height: 238 }}
+        sx={{
+          width: "100%",
+          height: 238,
+          transition: "transform .3s",
+          "&:hover": {
+            transform: "scale(1.05)",
+          },
+        }}
         image={thumbnail}
         title={name}
       />
