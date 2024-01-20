@@ -1,10 +1,25 @@
-import { Box, Button, Rating, Typography } from "@mui/material";
+import { Box, Rating, Typography } from "@mui/material";
 
 import { CustomButton } from "@/components/common";
 import { ProductColors } from "../colors";
 import { MiniButton } from "../../../common";
+import { FC } from "react";
 
-export function ProductContent() {
+interface ProductContent {
+  name: string;
+  price: number;
+  rating: number;
+  stock: number;
+  id: number;
+}
+
+export const ProductContent: FC<ProductContent> = ({
+  name,
+  price,
+  rating,
+  stock,
+  id,
+}) => {
   return (
     <Box>
       {/* Name */}
@@ -14,14 +29,14 @@ export function ProductContent() {
         fontWeight={400}
         color="secondary.dark"
       >
-        Floating Phone
+        {name}
       </Typography>
 
       {/* Rating & Reviews */}
       <Box display="flex" gap="10px" mt="12px">
         <Rating
           name="read-only"
-          value={4}
+          value={Math.floor(rating)}
           readOnly
           size="large"
           sx={{
@@ -48,7 +63,7 @@ export function ProductContent() {
         fontWeight={700}
         color="secondary.dark"
       >
-        $1,139.33
+        ${price?.toLocaleString()}
       </Typography>
 
       {/* Availability */}
@@ -67,7 +82,7 @@ export function ProductContent() {
           fontWeight={700}
           color="primary.main"
         >
-          In Stock
+          {stock > 0 ? "In Stock" : "Out of Stock"}
         </Typography>
       </Box>
 
@@ -129,4 +144,4 @@ export function ProductContent() {
       </Box>
     </Box>
   );
-}
+};

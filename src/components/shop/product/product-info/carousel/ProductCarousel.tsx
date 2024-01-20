@@ -44,6 +44,8 @@ export const ProductCarousel: FC<ProductCarousel> = ({ images = [], name }) => {
         ))}
       </Swiper>
       <Box mt="21px" />
+
+      {/* Thumbnails */}
       <Swiper
         onSwiper={setThumbsSwiper}
         spaceBetween={19}

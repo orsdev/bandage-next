@@ -1,9 +1,15 @@
-import { ProductCard } from "@/components/common";
+import { ProductCard, ProductCardSkeleton } from "@/components/common";
+import { useGetAllProductsQuery } from "@/store/api";
 import { Box, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 
 export const BestProducts = () => {
+  const { isLoading, error, data } = useGetAllProductsQuery("2");
+  const { products } = data || {};
+
   const router = useRouter();
+
+  if (error) return <></>;
 
   return (
     <Box mt="96px">
@@ -36,38 +42,24 @@ export const BestProducts = () => {
             rowGap: "24px",
           }}
         >
-          <ProductCard
-            name="Iphone"
-            brand="English Department"
-            price={500}
-            discount={100}
-            thumbnail="/images/products/product-1.png"
-            handleClick={() => {
-              router.push(`/shop/${1}`);
-            }}
-          />
+          {/* Loading Card */}
+          {isLoading && !data && <ProductCardSkeleton totalSkeleton={10} />}
 
-          <ProductCard
-            name="Iphone"
-            brand="English Department"
-            price={500}
-            discount={100}
-            thumbnail="/images/products/product-1.png"
-            handleClick={() => {
-              router.push(`/shop/${2}`);
-            }}
-          />
-
-          <ProductCard
-            name="Iphone"
-            brand="English Department"
-            price={500}
-            discount={100}
-            thumbnail="/images/products/product-1.png"
-            handleClick={() => {
-              router.push(`/shop/${3}`);
-            }}
-          />
+          {/* Products */}
+          {data &&
+            products?.slice(0, 8).map((product) => (
+              <ProductCard
+                key={product.id}
+                name={product.title}
+                brand={product.brand}
+                price={product.price}
+                discount={product.discountPercentage}
+                thumbnail={product.thumbnail}
+                handleClick={() => {
+                  router.push(`/shop/${product.id}`);
+                }}
+              />
+            ))}
         </Box>
       </Box>
     </Box>

@@ -3,8 +3,25 @@
 import { Box } from "@mui/material";
 import { ProductCarousel } from "./carousel";
 import { ProductContent } from "./content";
+import { FC } from "react";
 
-export const ProductInfo = () => {
+interface ProductInfo {
+  images: Array<string>;
+  name: string;
+  price: number;
+  rating: number;
+  stock: number;
+  id: number;
+}
+
+export const ProductInfo: FC<ProductInfo> = ({
+  images,
+  name,
+  price,
+  rating,
+  stock,
+  id,
+}) => {
   return (
     <Box mt="34px">
       <Box
@@ -19,18 +36,16 @@ export const ProductInfo = () => {
             overflowX: "hidden",
           }}
         >
-          <ProductCarousel
-            name=""
-            images={[
-              "https://cdn.dummyjson.com/product-images/2/1.jpg",
-              "https://cdn.dummyjson.com/product-images/2/2.jpg",
-              "https://cdn.dummyjson.com/product-images/2/3.jpg",
-              "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
-            ]}
-          />
+          <ProductCarousel name={name} images={images || []} />
         </Box>
         <Box>
-          <ProductContent />
+          <ProductContent
+            id={id}
+            name={name}
+            price={price}
+            rating={rating}
+            stock={stock}
+          />
         </Box>
       </Box>
     </Box>

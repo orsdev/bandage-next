@@ -43,8 +43,16 @@ export const ProductsApi = createApi({
         currentCache.products.push(...newItems.products);
       },
     }),
+    getSingleProduct: builder.query<ProductType, string>({
+      query: (id) => {
+        return `/product/${id}`;
+      },
+    }),
   }),
 });
 
-export const { useGetAllProductsQuery, useLazyGetAllProductsQuery } =
-  ProductsApi;
+export const {
+  useLazyGetAllProductsQuery,
+  useGetAllProductsQuery,
+  useGetSingleProductQuery,
+} = ProductsApi;
