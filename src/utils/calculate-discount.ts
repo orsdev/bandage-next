@@ -3,7 +3,7 @@
  *
  * @param {number} originalPrice - The original price before the discount.
  * @param {number} discountPercentage - The percentage of the discount.
- * @returns {number} - The discounted price, or 0 if input is invalid.
+ * @returns {number} - The discounted price, or original price if input is invalid.
  */
 export const calculateDiscountedPrice = (
   originalPrice: number,
@@ -15,13 +15,13 @@ export const calculateDiscountedPrice = (
     typeof discountPercentage !== "number"
   ) {
     console.error("Both originalPrice and discountPercentage must be numbers.");
-    return 0;
+    return originalPrice;
   }
 
   // Validate discount percentage range
   if (discountPercentage <= 0 || discountPercentage > 100) {
     console.error("Discount percentage must be between 0 and 100.");
-    return 0;
+    return originalPrice;
   }
 
   // Calculate the discount amount

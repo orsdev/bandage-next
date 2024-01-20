@@ -19,8 +19,6 @@ export const ProductCard: FC<ProductCard> = ({
   discount,
   handleClick,
 }) => {
-  const isValidDiscount = calculateDiscountedPrice(price, discount) > 0;
-
   return (
     <Card
       style={{
@@ -68,16 +66,18 @@ export const ProductCard: FC<ProductCard> = ({
           >
             $<span>{price?.toLocaleString()}</span>
           </Typography>
-          {isValidDiscount && (
-            <Typography
-              component="p"
-              variant="subtitle1"
-              fontWeight={700}
-              color="secondary.main"
-            >
-              $<span>{calculateDiscountedPrice(price, discount)}</span>
-            </Typography>
-          )}
+
+          <Typography
+            component="p"
+            variant="subtitle1"
+            fontWeight={700}
+            color="secondary.main"
+          >
+            $
+            <span>
+              {calculateDiscountedPrice(price, discount).toLocaleString()}
+            </span>
+          </Typography>
         </Box>
       </CardContent>
     </Card>

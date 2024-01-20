@@ -4,24 +4,15 @@ import { Box } from "@mui/material";
 import { ProductCarousel } from "./carousel";
 import { ProductContent } from "./content";
 import { FC } from "react";
+import { ProductType } from "@/store/api";
 
 interface ProductInfo {
-  images: Array<string>;
-  name: string;
-  price: number;
-  rating: number;
-  stock: number;
-  id: number;
+  product: ProductType;
 }
 
-export const ProductInfo: FC<ProductInfo> = ({
-  images,
-  name,
-  price,
-  rating,
-  stock,
-  id,
-}) => {
+export const ProductInfo: FC<ProductInfo> = ({ product }) => {
+  const { images, title } = product || {};
+
   return (
     <Box mt="34px">
       <Box
@@ -36,16 +27,10 @@ export const ProductInfo: FC<ProductInfo> = ({
             overflowX: "hidden",
           }}
         >
-          <ProductCarousel name={name} images={images || []} />
+          <ProductCarousel name={title} images={images || []} />
         </Box>
         <Box>
-          <ProductContent
-            id={id}
-            name={name}
-            price={price}
-            rating={rating}
-            stock={stock}
-          />
+          <ProductContent product={product} />
         </Box>
       </Box>
     </Box>

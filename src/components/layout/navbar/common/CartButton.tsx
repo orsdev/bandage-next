@@ -1,10 +1,16 @@
+import { useAppSelector } from "@/store/hook";
 import { Button, Typography } from "@mui/material";
 import Image from "next/image";
+import { useCartDrawer } from "../use-cart";
 
 export const CartButton = () => {
+  const { handleOpenCart } = useCartDrawer();
+  const { cart } = useAppSelector((state) => state.cart);
+
   return (
     <Button
       type="button"
+      onClick={handleOpenCart}
       sx={{
         display: "flex",
         alignItems: "center",
@@ -21,7 +27,7 @@ export const CartButton = () => {
         height={18}
       />
       <Typography variant="subtitle2" component="p">
-        1
+        {cart.length}
       </Typography>
     </Button>
   );

@@ -10,7 +10,11 @@ export const ProductInfoSkeleton = () => {
       }}
     >
       {/* Image Carousel */}
-      <Box>
+      <Box
+        sx={{
+          overflowX: "hidden",
+        }}
+      >
         <Skeleton variant="rectangular" width={"100%"} height={350} />
         <Box mt="21px" display="flex" gap="19px">
           <Skeleton width={142} height={142} />

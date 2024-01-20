@@ -23,7 +23,6 @@ export default function Product() {
   const { id } = params || { id: "" };
 
   const { data, error, isLoading } = useGetSingleProductQuery(id as string);
-  const { images, title, price, stock, rating } = data || {};
 
   if (error) return redirect("/");
 
@@ -38,16 +37,7 @@ export default function Product() {
           {/* Product Info Skeleton */}
           {isLoading && !data && <ProductInfoSkeleton />}
           {/* Product Info */}
-          {data && (
-            <ProductInfo
-              images={images as Array<string>}
-              name={title as string}
-              price={price as number}
-              rating={rating as number}
-              stock={stock as number}
-              id={data?.id as number}
-            />
-          )}
+          {data && <ProductInfo product={data} />}
 
           {/* Product Overview */}
           {data && <ProductOverview />}
