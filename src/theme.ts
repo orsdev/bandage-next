@@ -54,7 +54,7 @@ const theme = createTheme({
       fontSize: "clamp(1.8rem, 2vw, 2rem)",
     },
     h4: {
-      fontSize: "1.6rem",
+      fontSize: "1.5rem",
     },
     subtitle1: {
       fontSize: "1.4rem",

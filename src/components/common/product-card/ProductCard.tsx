@@ -1,3 +1,4 @@
+import { calculateDiscountedPrice } from "@/utils";
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { FC } from "react";
 
@@ -18,6 +19,8 @@ export const ProductCard: FC<ProductCard> = ({
   discount,
   handleClick,
 }) => {
+  const isValidDiscount = calculateDiscountedPrice(price, discount) > 0;
+
   return (
     <Card
       style={{
@@ -27,7 +30,11 @@ export const ProductCard: FC<ProductCard> = ({
       }}
       onClick={handleClick}
     >
-      <CardMedia sx={{ height: 238 }} image={thumbnail} title={name} />
+      <CardMedia
+        sx={{ width: "100%", height: 238 }}
+        image={thumbnail}
+        title={name}
+      />
       <CardContent
         sx={{
           padding: "25px 25px 35px 25px",
@@ -59,16 +66,18 @@ export const ProductCard: FC<ProductCard> = ({
             fontWeight={700}
             color="secondary.contrastText"
           >
-            $<span>{price}</span>
+            $<span>{price?.toLocaleString()}</span>
           </Typography>
-          <Typography
-            component="p"
-            variant="subtitle1"
-            fontWeight={700}
-            color="secondary.main"
-          >
-            $<span>{discount}</span>
-          </Typography>
+          {isValidDiscount && (
+            <Typography
+              component="p"
+              variant="subtitle1"
+              fontWeight={700}
+              color="secondary.main"
+            >
+              $<span>{calculateDiscountedPrice(price, discount)}</span>
+            </Typography>
+          )}
         </Box>
       </CardContent>
     </Card>

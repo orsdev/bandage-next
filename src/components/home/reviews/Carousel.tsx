@@ -25,8 +25,8 @@ export const ReviewCarousel = () => {
                 src={item.avatar}
                 sx={{
                   mb: "20px",
-                  width: "90px",
-                  height: "90px",
+                  width: 90,
+                  height: 90,
                 }}
               />
               <Rating

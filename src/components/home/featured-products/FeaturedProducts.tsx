@@ -1,16 +1,41 @@
 "use client";
 
-import { CustomButton, ProductCard } from "@/components/common";
+import {
+  CustomButton,
+  ProductCard,
+  ProductCardSkeleton,
+} from "@/components/common";
+import { useLazyGetAllProductsQuery } from "@/store/api";
 import { Box, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
+import { useFeaturedProduct } from "./use-features-products";
+import { useEffect } from "react";
 
 export const FeaturedProducts = () => {
   const router = useRouter();
+
+  const [trigger, result] = useLazyGetAllProductsQuery();
+
+  const { data, isLoading, isFetching, error } = result || {};
+  const { products, total } = data || { total: 1, products: [] };
+
+  const { handlePagination } = useFeaturedProduct({
+    total,
+    products,
+  });
+
+  const isLastItem = products.length === total;
+
+  useEffect(() => {
+    // Fetch products on initial load
+    trigger("", true);
+  }, []);
+
   return (
     <Box
       component="section"
       mt="160px"
-      px={{ base: "40px", md: "80px" }}
+      px={{ base: "40px", md: "30px" }}
       width="100%"
     >
       {/* Header */}
@@ -58,43 +83,42 @@ export const FeaturedProducts = () => {
             rowGap: "16px",
           }}
         >
-          <ProductCard
-            name="Iphone"
-            brand="English Department"
-            price={500}
-            discount={100}
-            thumbnail="/images/products/product-1.png"
-            handleClick={() => {
-              router.push(`/shop/${1}`);
-            }}
-          />
+          {/* Loading Card */}
+          {((isLoading && !error) || (!data && !error)) && (
+            <ProductCardSkeleton totalSkeleton={10} />
+          )}
 
-          <ProductCard
-            name="Iphone"
-            brand="English Department"
-            price={500}
-            discount={100}
-            thumbnail="/images/products/product-1.png"
-            handleClick={() => {
-              router.push(`/shop/${2}`);
-            }}
-          />
-
-          <ProductCard
-            name="Iphone"
-            brand="English Department"
-            price={500}
-            discount={100}
-            thumbnail="/images/products/product-1.png"
-            handleClick={() => {
-              router.push(`/shop/${3}`);
-            }}
-          />
+          {/* Products */}
+          {data &&
+            products?.map((product) => (
+              <ProductCard
+                key={product.id}
+                name={product.title}
+                brand={product.brand}
+                price={product.price}
+                discount={product.discountPercentage}
+                thumbnail={product.thumbnail}
+                handleClick={() => {
+                  router.push(`/shop/${product.id}`);
+                }}
+              />
+            ))}
         </Box>
 
-        <Box display="flex" justifyContent="center" mt="50px">
-          <CustomButton title="Load More Product" isLoading={false} />
-        </Box>
+        {products && !isLastItem && (
+          <Box display="flex" justifyContent="center" mt="50px">
+            <CustomButton
+              title="Load More Product"
+              isLoading={isLoading || isFetching}
+              handleClick={() => {
+                handlePagination(({ skip }) => {
+                  // Refetch products api
+                  trigger(skip);
+                });
+              }}
+            />
+          </Box>
+        )}
       </Box>
     </Box>
   );

@@ -51,12 +51,11 @@ export const Reviews = () => {
         gridAutoRows={{ base: "130px", lg: "142px" }}
       >
         {MockFrameData.map((frame) => (
-          <Image
+          <Box
+            component="img"
             key={frame.name}
             src={frame.thumbnail}
             alt={frame.name}
-            width={142}
-            height={142}
             style={{
               width: "100%",
               height: "100%",

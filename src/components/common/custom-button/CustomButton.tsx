@@ -5,11 +5,13 @@ import { FC } from "react";
 interface CustomButton {
   title: string;
   isLoading?: boolean;
+  handleClick?(): void;
   style?: SxProps | undefined;
 }
 
 export const CustomButton: FC<CustomButton> = ({
   title,
+  handleClick,
   isLoading = false,
   style = {},
 }) => {
@@ -17,6 +19,7 @@ export const CustomButton: FC<CustomButton> = ({
     <LoadingButton
       type="button"
       loading={isLoading}
+      onClick={handleClick}
       sx={{
         textTransform: "uppercase",
         borderRadius: "5px",

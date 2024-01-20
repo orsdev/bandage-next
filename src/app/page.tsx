@@ -1,3 +1,5 @@
+"use client";
+
 import { CenteredContainer } from "@/components";
 import {
   Experience,
