@@ -1,0 +1,54 @@
+.bookBall {
+  -webkit-animation: bounce 1s linear infinite alternate;
+  animation: bounce 1s linear infinite alternate;
+}
+
+@keyframes bounce {
+  0%,
+  30% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.openBookLine {
+  -webkit-animation: flash 2s linear infinite alternate;
+  animation: flash 2s linear infinite alternate;
+  -webkit-animation-delay: var(--1);
+  animation-delay: var(--i);
+}
+
+@keyframes flash {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: #23a6f0;
+  }
+}
+
+.wavyArrow {
+  stroke: #23a6f0;
+  stroke-width: 3px;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  fill: none;
+  animation: dash 3s linear infinite alternate;
+}
+
+@keyframes dash {
+  50% {
+    stroke-dashoffset: 0;
+  }
+  55% {
+    fill: #23a6f0;
+  }
+  55.5% {
+    fill: none;
+  }
+}

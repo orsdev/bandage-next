@@ -1,21 +1,21 @@
 "use client";
 
 import { Box, Typography } from "@mui/material";
-import Image from "next/image";
+import { BallBook, OpenBook, WavyArrow } from "./ServicesIcons";
 
 const MockServicesData = [
   {
-    icon: "/images/icons/open-book.svg",
+    icon: <BallBook />,
     name: "Easy Wins",
     info: "Get your best looking smile now!",
   },
   {
-    icon: "/images/icons/book.svg",
+    icon: <OpenBook />,
     name: "Concrete",
     info: "Defalcate is most focused in helping you discover your most beautiful smile",
   },
   {
-    icon: "/images/icons/arrow.svg",
+    icon: <WavyArrow />,
     name: "Hack Growth",
     info: "Overcame any hurdle or any other problem.",
   },
@@ -89,7 +89,7 @@ export const OurServices = () => {
               px="40px"
               textAlign="center"
             >
-              <Image src={item.icon} alt={item.name} width={72} height={72} />
+              {item.icon}
               <Typography
                 component="h3"
                 variant="h3"
