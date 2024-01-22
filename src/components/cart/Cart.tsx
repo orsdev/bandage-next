@@ -48,7 +48,7 @@ export const CartDrawer = () => {
                 overflowY: "auto",
               }}
             >
-              {cart.map((item) => (
+              {cart?.map((item) => (
                 <CartItems
                   key={item.title}
                   item={item}

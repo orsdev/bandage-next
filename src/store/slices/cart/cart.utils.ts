@@ -126,7 +126,7 @@ export class ShoppingCart {
    * @returns {number} - The subtotal of the items in the shopping cart.
    */
   static calculateSubTotal = (items: CartItem[]) => {
-    return items.reduce((accumulator, item) => {
+    return items?.reduce((accumulator, item) => {
       const sum =
         item.quantity *
         calculateDiscountedPrice(item.price, item.discountPercentage);

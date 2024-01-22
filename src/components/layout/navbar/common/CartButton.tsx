@@ -27,7 +27,7 @@ export const CartButton = () => {
         height={18}
       />
       <Typography variant="subtitle2" component="p">
-        {cart.length}
+        {cart?.length}
       </Typography>
     </Button>
   );

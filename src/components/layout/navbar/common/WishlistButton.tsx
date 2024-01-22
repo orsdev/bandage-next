@@ -27,7 +27,7 @@ export const WishlistButton = () => {
         height={18}
       />
       <Typography variant="subtitle2" component="p">
-        {wishlists.length}
+        {wishlists?.length}
       </Typography>
     </Button>
   );
