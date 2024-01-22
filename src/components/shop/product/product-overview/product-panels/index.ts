@@ -1,1 +1,2 @@
-export * from "./PanelOne";
+export * from "./PanelDescription";
+export * from "./PanelTwo";

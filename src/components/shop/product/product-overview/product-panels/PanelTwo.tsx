@@ -2,7 +2,7 @@
 
 import { Box, Typography } from "@mui/material";
 
-export const PanelOne = () => {
+export const PanelTwo = () => {
   return (
     <Box
       display="flex"

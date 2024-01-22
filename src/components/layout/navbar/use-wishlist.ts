@@ -24,7 +24,7 @@ export const useWishlistDrawer = () => {
     const url = `${pathname}?${optionSearchParams.toString()}`;
 
     // Navigate to the new URL
-    router.push(url);
+    router.replace(url);
   };
 
   // Function to close the wishlist
@@ -43,7 +43,7 @@ export const useWishlistDrawer = () => {
     const url = `${pathname}${queryString}`;
 
     // Navigate to the new URL
-    router.push(url);
+    router.replace(url);
   };
 
   return {
