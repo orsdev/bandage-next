@@ -51,7 +51,17 @@ export const PostCard: FC<PostCard> = ({
         }}
       />
     </Box>
-    <CardMedia sx={{ height: 300 }} image={thumbnail} title={title} />
+    <CardMedia
+      image={thumbnail}
+      title={title}
+      sx={{
+        height: 300,
+        transition: "transform .3s",
+        "&:hover": {
+          transform: "scale(1.05)",
+        },
+      }}
+    />
     <CardContent
       sx={{
         padding: "25px 25px 35px 25px",
