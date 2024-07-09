@@ -28,7 +28,6 @@ export const Footer = () => {
       <Box
         display="flex"
         justifyContent="space-between"
-        bgcolor="primary.contrastText"
         flexDirection={{ base: "column", sm: "row" }}
         maxWidth={{ lg: isHomepage ? "auto" : DefaultWidth.md }}
         rowGap="20px"
